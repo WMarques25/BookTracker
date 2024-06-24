@@ -1,5 +1,5 @@
 # Usar a imagem base do OpenJDK
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk-alpine
 
 # Definir o diretório de trabalho no contêiner
 WORKDIR /app
@@ -8,4 +8,4 @@ WORKDIR /app
 COPY target/*.jar app.jar
 
 # Informar o comando a ser executado quando o contêiner for iniciado
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT exec java -jar app.jar
