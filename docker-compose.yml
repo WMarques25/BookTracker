@@ -12,4 +12,21 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:${DATABASE_PRIVATE_URL}
       - SPRING_DATASOURCE_USERNAME=${PGUSER}
       - SPRING_DATASOURCE_PASSWORD=${PGPASSWORD}
+      - SPRING_DATASOURCE_DATABASE=${PGDATABASE}
       - SPRING_JPA_HIBERNATE_DDL_AUTO=validate
+    networks:
+      - app-network
+
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+      - POSTGRES_DB=${PGDATABASE}
+    networks:
+      - app-network
+  
+networks:
+  app-network:
+    driver: bridge
