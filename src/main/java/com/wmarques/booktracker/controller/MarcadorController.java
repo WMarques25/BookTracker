@@ -51,7 +51,7 @@ public class MarcadorController {
     @PostMapping("/usuario/{idUsuario}/livro/{idLivro}/pagina/{pagina}")
     @Transactional
     public ResponseEntity<Marcador> marcar(@PathVariable int pagina, @PathVariable Long idUsuario, @PathVariable Long idLivro){
-        if(marcadorRepository.findByUsuarioIdAndLivroId(idUsuario, idLivro) != null){
+        if(marcadorRepository.findByUsuarioIdAndLivroId(idUsuario, idLivro) == null){
             return criarMarcador(pagina, idUsuario, idLivro);
         }else {
             return atualizarMarcador(pagina, idUsuario, idLivro);
