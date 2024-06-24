@@ -4,7 +4,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 **/env-presets
-env-presets/prd.env
 
 ### STS ###
 .apt_generated
