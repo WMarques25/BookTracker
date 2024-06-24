@@ -15,6 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.wmarques.booktracker.model.Livro;
 import com.wmarques.booktracker.repository.LivroRepository;
 
+import jakarta.transaction.Transactional;
+
 @RestController
 @RequestMapping("/livros")
 public class LivroController {
@@ -23,6 +25,7 @@ public class LivroController {
     private LivroRepository livroRepository;
     
     @PostMapping
+    @Transactional
     public ResponseEntity<Livro> save(Livro livro) {
         var livroCriado = livroRepository.save(livro);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")

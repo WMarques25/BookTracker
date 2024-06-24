@@ -14,6 +14,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.wmarques.booktracker.model.Usuario;
 import com.wmarques.booktracker.service.UsuarioService;
 
+import jakarta.transaction.Transactional;
+
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -22,6 +24,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping
+    @Transactional
     public ResponseEntity<Usuario> save(Usuario usuario) {
         var usuarioCriado = usuarioService.save(usuario);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
