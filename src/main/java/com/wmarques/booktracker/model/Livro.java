@@ -14,6 +14,8 @@ public class Livro {
     private String autor;
     private int paginas;
 
+    public Livro() {
+    }
     public Long getId() {
         return id;
     }

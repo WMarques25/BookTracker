@@ -23,6 +23,8 @@ public class Marcador {
 
     private int pagina;
 
+    public Marcador() {
+    }
     public Marcador(int pagina, Usuario usuario, Livro livro) {
         this.pagina = pagina;
         this.usuario = usuario;
