@@ -13,14 +13,14 @@ public interface MarcadorRepository extends JpaRepository<Marcador, Long>{
      * @param usuarioId
      * @return List<{@link Marcador}>
      */
-    List<Marcador> findByUsuarioId(Long usuarioId);
+    List<Marcador> findByUsuarioId(Long idUsuario);
 
     /**
      * Retorna todos os marcadores de um livro
      * @param livroId
      * @return List<{@link Marcador}>
      */
-    List<Marcador> findByLivroId(Long livroId);
+    List<Marcador> findByLivroId(Long idLivro);
 
     /**
      * Retorna um marcador de um usuário e um livro
@@ -28,5 +28,5 @@ public interface MarcadorRepository extends JpaRepository<Marcador, Long>{
      * @param livroId
      * @return {@link Marcador}
      */
-    Marcador findByUsuarioIdAndLivroId(Long usuarioId, Long livroId);
+    Marcador findByUsuarioIdAndLivroId(Long idUsuario, Long idLivro);
 }
