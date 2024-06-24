@@ -34,7 +34,7 @@ public class MarcadorController {
 
     @GetMapping("/usuario/{idUsuario}")
     public ResponseEntity<List<Marcador>> listarPorUsuario(@PathVariable Long idUsuario) {
-        var page = marcadorRepository.findByUsuarioId(idUsuario);
+        List<Marcador> page = marcadorRepository.findByUsuarioId(idUsuario);
         return ResponseEntity.ok(page);
     }
 
